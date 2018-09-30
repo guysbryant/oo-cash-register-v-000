@@ -11,7 +11,7 @@ class CashRegister
   end
   
   def add_item(title, price, quantity = 1)
-    @items << ("#{title} " * quantity).split()
+    quantity.times{@items << title}
     @transactions << {'item' => title, 'cost' => price, 'number' => quantity, 'total' => price * quantity}
     @total += price * quantity
   end
@@ -23,7 +23,7 @@ class CashRegister
   end
   
   def items
-    @items.flatten
+    @items
   end
   
   def void_last_transaction
